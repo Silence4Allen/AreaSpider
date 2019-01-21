@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'AreaSpider.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'Spider (+http://www.yourdomain.com)'
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.26 Safari/537.36 Core/1.63.6788.400 QQBrowser/10.3.2864.400'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -51,6 +51,8 @@ ROBOTSTXT_OBEY = False
 SPIDER_MIDDLEWARES = {
     'AreaSpider.middlewares.SpiderRandomUserAgentMiddleware': 2,
 }
+from scrapy.downloadermiddlewares.retry import RetryMiddleware
+
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
@@ -103,5 +105,5 @@ SQL_DATE_FORMAT = "%Y-%m-%d"
 
 FORMAT_TIME = time.strftime('%Y-%m-%d_%H-%M-%S', time.localtime(time.time()))
 
-# LOG_FILE = FORMAT_TIME + ".log"
-# LOG_LEVEL = "INFO"
+LOG_FILE = FORMAT_TIME + ".log"
+LOG_LEVEL = "INFO"
